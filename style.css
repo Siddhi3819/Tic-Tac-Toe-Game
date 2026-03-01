@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px 35px;
+    border-radius: 16px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Title */
+h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Status text */
+#status {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Cell */
+.cell {
+    background: #f9fafb;
+    border: none;
+    border-radius: 12px;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+}
+
+.cell:hover {
+    transform: translateY(-4px);
+    background: #eef2ff;
+}
+
+/* X and O colors */
+.cell:contains("X") {
+    color: #1976d2;
+}
+
+.cell:contains("O") {
+    color: #e53935;
+}
+
+/* Restart button */
+#restart {
+    padding: 10px 22px;
+    font-size: 14px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#restart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* POPUP BACKGROUND */
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.hide {
+    display: none;
+}
+
+/* POPUP BOX */
+.popup-content {
+    background: white;
+    padding: 30px;
+    width: 300px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    animation: popupScale 0.35s ease;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color: white;
+    font-size: 14px;
+}
+
+.popup-content button:hover {
+    opacity: 0.9;
+}
+
+/* Popup animation */
+@keyframes popupScale {
+    from {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
